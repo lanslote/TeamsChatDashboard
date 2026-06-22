@@ -4,6 +4,26 @@ Teams에서 내가 속한 채팅의 최신 대화를 한 화면에 모아 보는
 
 ![Teams 그룹챗 대시보드 화면](docs/images/dashboard.png)
 
+## 관리자 설치·구성 가이드
+
+고객사 관리자가 그대로 따라할 수 있는 설치 절차서는 Word 문서로, 내부 설명/킥오프용 요약은 PowerPoint로 제공합니다.
+
+| 문서 | 용도 |
+| --- | --- |
+| [관리자 설치·구성 가이드 Word](docs/TeamsChatDashboard_Admin_Install_Config_Guide_ko.docx) | SharePoint App Catalog 배포, Graph 권한 승인, Teams 앱 게시, 검증/문제 해결 상세 절차 |
+| [관리자 설치·구성 요약 PowerPoint](docs/TeamsChatDashboard_Admin_Install_Config_Overview_ko.pptx) | 고객사 설명, 배포 킥오프, 운영자 인수인계용 요약 자료 |
+| [GitHub Release v1.0.4](https://github.com/lanslote/TeamsChatDashboard/releases/tag/v1.0.4) | `.sppkg`, Teams 앱 패키지, 관리자 문서 다운로드 |
+
+## 화면 예시
+
+| 그룹 대화 | 즐겨찾기 |
+| --- | --- |
+| <img src="docs/images/group-conversations.png" alt="그룹 대화 화면" width="420"> | <img src="docs/images/favorites.png" alt="즐겨찾기 화면" width="420"> |
+
+| 내 활동 | 설정 |
+| --- | --- |
+| <img src="docs/images/activity.png" alt="내 활동 화면" width="420"> | <img src="docs/images/settings.png" alt="설정 화면" width="420"> |
+
 ## 주요 기능
 
 - **Teams 개인 앱**으로 실행되는 대시보드
@@ -38,7 +58,10 @@ Teams에서 내가 속한 채팅의 최신 대화를 한 화면에 모아 보는
 ```text
 .
 ├─ config/                         # SPFx 빌드/패키징 설정
-├─ docs/images/dashboard.png       # README용 스크린샷
+├─ docs/                           # 관리자 설치 문서와 화면 예시
+│  ├─ TeamsChatDashboard_Admin_Install_Config_Guide_ko.docx
+│  ├─ TeamsChatDashboard_Admin_Install_Config_Overview_ko.pptx
+│  └─ images/                      # README/문서용 스크린샷
 ├─ src/webparts/dashboard/
 │  ├─ components/                  # React 컴포넌트
 │  ├─ models/                      # 데이터 모델
