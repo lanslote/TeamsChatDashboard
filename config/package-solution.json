@@ -1,0 +1,46 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "teamchatdashboard-client-side-solution",
+    "id": "c7995bda-69f0-4ae6-a9ab-bc87a3029c9c",
+    "version": "1.0.4.0",
+    "includeClientSideAssets": true,
+    "skipFeatureDeployment": true,
+    "isDomainIsolated": false,
+    "webApiPermissionRequests": [
+      { "resource": "Microsoft Graph", "scope": "Chat.Read" },
+      { "resource": "Microsoft Graph", "scope": "User.Read" },
+      { "resource": "Microsoft Graph", "scope": "User.ReadBasic.All" },
+      { "resource": "Microsoft Graph", "scope": "User.ReadWrite" }
+    ],
+    "developer": {
+      "name": "Scout",
+      "websiteUrl": "",
+      "privacyUrl": "",
+      "termsOfUseUrl": "",
+      "mpnId": "Undefined-1.23.0"
+    },
+    "metadata": {
+      "shortDescription": {
+        "default": "Teams 그룹챗 대시보드 - 내가 선택한 채팅의 최신 대화를 한 화면에서"
+      },
+      "longDescription": {
+        "default": "내가 속한 Teams 채팅(1:1·그룹·미팅)의 최신 메시지를 한 화면에서 모아 보고, 설정에서 표시할 채팅과 즐겨찾기를 직접 고를 수 있는 개인 탭 대시보드입니다."
+      },
+      "screenshotPaths": [],
+      "videoUrl": "",
+      "categories": []
+    },
+    "features": [
+      {
+        "title": "teamchatdashboard Feature",
+        "description": "The feature that activates elements of the teamchatdashboard solution.",
+        "id": "449ae5b1-fa91-44b7-86dc-e2de57482ab2",
+        "version": "1.0.0.0"
+      }
+    ]
+  },
+  "paths": {
+    "zippedPackage": "solution/teamchatdashboard.sppkg"
+  }
+}

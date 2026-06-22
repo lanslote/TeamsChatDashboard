@@ -1,0 +1,991 @@
+@import '~@fluentui/react/dist/sass/References.scss';
+
+/* ---------- design tokens ---------- */
+$bg: #f5f6fa;
+$panel: #ffffff;
+$ink: #1d2033;
+$ink2: #353a52;
+$muted: #8a90a6;
+$muted2: #aeb4c6;
+$line: #edeff5;
+$primary: #5b5fe6;
+$primaryDark: #494dd6;
+$primarySoft: #eef0fe;
+$danger: #f2674a;
+$shadowSm: 0 1px 2px rgba(22, 25, 45, 0.05);
+$shadow: 0 1px 2px rgba(22, 25, 45, 0.04), 0 8px 20px rgba(22, 25, 45, 0.06);
+$radius: 16px;
+$radiusSm: 12px;
+$font: 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Pretendard', 'Malgun Gothic',
+  Roboto, Helvetica, Arial, sans-serif;
+
+/* ---------- root ---------- */
+.app {
+  font-family: $font;
+  color: $ink;
+  background: $bg;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+}
+
+.shell {
+  display: flex;
+  align-items: stretch;
+  min-height: 100vh;
+}
+
+/* ---------- sidebar ---------- */
+.sidebar {
+  width: 232px;
+  flex: 0 0 232px;
+  background: $panel;
+  border-right: 1px solid $line;
+  padding: 22px 16px;
+  display: flex;
+  flex-direction: column;
+  position: sticky;
+  top: 0;
+  align-self: flex-start;
+  height: 100vh;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 6px 8px 22px;
+}
+
+.brandLogo {
+  width: 38px;
+  height: 38px;
+  border-radius: 11px;
+  background: linear-gradient(135deg, #6366f1, #5b5fe6);
+  color: #fff;
+  font-weight: 700;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 14px rgba(91, 95, 230, 0.35);
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1 1 auto;
+}
+
+.navItem {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  padding: 11px 12px;
+  border-radius: 11px;
+  border: none;
+  background: transparent;
+  color: $muted;
+  font-size: 14.5px;
+  font-weight: 600;
+  font-family: $font;
+  cursor: pointer;
+  text-align: left;
+  width: 100%;
+  transition: background 0.15s, color 0.15s;
+
+  &:hover {
+    background: #f6f7fb;
+    color: $ink2;
+  }
+}
+
+.navItemActive {
+  background: $primarySoft;
+  color: $primary;
+
+  &:hover {
+    background: $primarySoft;
+    color: $primary;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: -16px;
+    top: 9px;
+    bottom: 9px;
+    width: 3px;
+    border-radius: 0 3px 3px 0;
+    background: $primary;
+  }
+}
+
+.navIcon {
+  width: 20px;
+  height: 20px;
+  flex: 0 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navLabel {
+  flex: 1 1 auto;
+}
+
+.navBadge {
+  background: $primary;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  border-radius: 10px;
+  padding: 1px 7px;
+  line-height: 16px;
+}
+
+.sidebarFooter {
+  border-top: 1px solid $line;
+  padding-top: 14px;
+  margin-top: 10px;
+}
+
+.userChip {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding: 6px 6px;
+}
+
+.userAvatar {
+  position: relative;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: #d8dcf7;
+  color: $primaryDark;
+  font-weight: 700;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.userPresence {
+  position: absolute;
+  right: -1px;
+  bottom: -1px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #36c46f;
+  border: 2px solid $panel;
+}
+
+.userName {
+  flex: 1 1 auto;
+  font-size: 14px;
+  font-weight: 600;
+  color: $ink2;
+}
+
+.userMore {
+  color: $muted2;
+  font-size: 18px;
+  letter-spacing: 1px;
+}
+
+/* ---------- main ---------- */
+.main {
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow: auto;
+  max-height: 100vh;
+}
+
+.content {
+  padding: 30px 40px 48px;
+  max-width: 1320px;
+  margin: 0 auto;
+}
+
+.topbar {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.greetingTitle {
+  font-size: 27px;
+  font-weight: 800;
+  letter-spacing: -0.3px;
+  margin: 0;
+  color: $ink;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.greetingSubtitle {
+  margin: 7px 0 0;
+  color: $muted;
+  font-size: 14.5px;
+}
+
+.headerActions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding-top: 4px;
+}
+
+.iconBtn {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  border-radius: 11px;
+  border: 1px solid $line;
+  background: $panel;
+  color: #6b7186;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+
+  &:hover {
+    background: #f6f7fb;
+  }
+}
+
+.iconBtnBadge {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 5px;
+  border-radius: 9px;
+  background: $primary;
+  color: #fff;
+  font-size: 10.5px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid $panel;
+}
+
+/* ---------- search row ---------- */
+.searchRow {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.search {
+  flex: 1 1 auto;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: $panel;
+  border: 1px solid $line;
+  border-radius: 14px;
+  padding: 0 16px;
+  height: 52px;
+  box-shadow: $shadowSm;
+
+  &:focus-within {
+    border-color: #cfd2f6;
+    box-shadow: 0 0 0 3px rgba(91, 95, 230, 0.12);
+  }
+}
+
+.searchIcon {
+  color: $muted2;
+  flex: 0 0 auto;
+  display: flex;
+}
+
+.searchInput {
+  flex: 1 1 auto;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-family: $font;
+  font-size: 14.5px;
+  color: $ink;
+
+  &::placeholder {
+    color: $muted2;
+  }
+}
+
+.searchFilter {
+  border: none;
+  background: transparent;
+  color: $muted2;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+
+  &:hover {
+    color: $primary;
+  }
+}
+
+.addBtn {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 52px;
+  padding: 0 22px;
+  border-radius: 14px;
+  border: none;
+  background: $primary;
+  color: #fff;
+  font-family: $font;
+  font-size: 14.5px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 8px 18px rgba(91, 95, 230, 0.3);
+  transition: background 0.15s, transform 0.05s;
+
+  &:hover {
+    background: $primaryDark;
+  }
+
+  &:active {
+    transform: translateY(1px);
+  }
+}
+
+/* ---------- stat cards ---------- */
+.statRow {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 22px;
+}
+
+.statCard {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: $panel;
+  border: 1px solid $line;
+  border-radius: $radius;
+  padding: 22px 24px;
+  box-shadow: $shadowSm;
+  cursor: pointer;
+  transition: box-shadow 0.15s, transform 0.15s;
+
+  &:hover {
+    box-shadow: $shadow;
+    transform: translateY(-2px);
+  }
+}
+
+.statIcon {
+  width: 54px;
+  height: 54px;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+}
+
+.statIconPurple {
+  background: #ece9fe;
+  color: #7c6cf0;
+}
+
+.statIconOrange {
+  background: #ffe8de;
+  color: #f5764b;
+}
+
+.statIconGreen {
+  background: #d8f3e7;
+  color: #2fb57e;
+}
+
+.statBody {
+  flex: 1 1 auto;
+}
+
+.statLabel {
+  color: $muted;
+  font-size: 13.5px;
+  font-weight: 600;
+}
+
+.statValue {
+  font-size: 30px;
+  font-weight: 800;
+  color: $ink;
+  line-height: 1.15;
+  margin-top: 3px;
+}
+
+.statChevron {
+  color: $muted2;
+  flex: 0 0 auto;
+}
+
+/* ---------- section heads ---------- */
+.sectionHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 34px 0 16px;
+}
+
+.sectionTitle {
+  font-size: 18px;
+  font-weight: 800;
+  color: $ink;
+  margin: 0;
+}
+
+.sectionAction {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  border: none;
+  background: transparent;
+  color: $muted;
+  font-family: $font;
+  font-size: 13.5px;
+  font-weight: 600;
+  cursor: pointer;
+
+  &:hover {
+    color: $primary;
+  }
+}
+
+/* ---------- favorites ---------- */
+.favRow {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+
+.favChip {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  background: $panel;
+  border: 1px solid $line;
+  border-radius: 14px;
+  padding: 14px 16px;
+  box-shadow: $shadowSm;
+  cursor: pointer;
+  transition: box-shadow 0.15s, transform 0.15s;
+
+  &:hover {
+    box-shadow: $shadow;
+    transform: translateY(-2px);
+  }
+}
+
+.favName {
+  flex: 1 1 auto;
+  font-size: 14.5px;
+  font-weight: 700;
+  color: $ink2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.favBell {
+  color: $muted2;
+  flex: 0 0 auto;
+  display: flex;
+}
+
+/* ---------- recent controls ---------- */
+.recentControls {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.sortSelect {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: $muted;
+  font-size: 13.5px;
+  font-weight: 600;
+
+  select {
+    border: none;
+    background: transparent;
+    font-family: $font;
+    font-size: 13.5px;
+    font-weight: 700;
+    color: $ink2;
+    cursor: pointer;
+    outline: none;
+  }
+}
+
+.viewToggle {
+  display: flex;
+  background: #eef0f4;
+  border-radius: 10px;
+  padding: 3px;
+  gap: 2px;
+}
+
+.viewBtn {
+  width: 32px;
+  height: 28px;
+  border: none;
+  background: transparent;
+  border-radius: 8px;
+  color: $muted;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover {
+    color: $ink2;
+  }
+}
+
+.viewBtnActive {
+  background: $panel;
+  color: $primary;
+  box-shadow: $shadowSm;
+}
+
+/* ---------- chat cards ---------- */
+.cardsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.cardsList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.chatCard {
+  background: $panel;
+  border: 1px solid $line;
+  border-radius: $radius;
+  padding: 20px 22px;
+  box-shadow: $shadowSm;
+  cursor: pointer;
+  transition: box-shadow 0.15s, transform 0.15s, border-color 0.15s;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+
+  &:hover {
+    box-shadow: $shadow;
+    transform: translateY(-2px);
+    border-color: #e2e5ef;
+  }
+}
+
+.chatTop {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+}
+
+.chatHeadText {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.chatTitle {
+  font-size: 15.5px;
+  font-weight: 800;
+  color: $ink;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.chatTime {
+  color: $muted2;
+  font-size: 12.5px;
+  font-weight: 600;
+  flex: 0 0 auto;
+  white-space: nowrap;
+}
+
+.chatBody {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.chatAuthorRow {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.chatAuthorName {
+  font-size: 13px;
+  font-weight: 700;
+  color: $ink2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.chatPreview {
+  color: $muted;
+  font-size: 13.5px;
+  line-height: 1.5;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.chatFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid $line;
+  padding-top: 13px;
+}
+
+.chatMembers {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: $muted;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.chatUnread {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: $primary;
+  color: #fff;
+  border-radius: 11px;
+  padding: 3px 10px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.chatUnreadDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #fff;
+}
+
+/* list mode tweaks */
+.cardsList .chatCard {
+  flex-direction: row;
+  align-items: center;
+  gap: 18px;
+  padding: 16px 22px;
+}
+
+.cardsList .chatTop {
+  flex: 0 0 240px;
+  width: 240px;
+}
+
+.cardsList .chatBody {
+  flex: 1 1 auto;
+  flex-direction: row;
+  align-items: center;
+  gap: 14px;
+}
+
+.cardsList .chatPreview {
+  flex: 1 1 auto;
+}
+
+.cardsList .chatFooter {
+  border-top: none;
+  padding-top: 0;
+  flex: 0 0 auto;
+  gap: 18px;
+}
+
+/* ---------- avatar ---------- */
+.avatar {
+  border-radius: 12px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  overflow: hidden;
+  letter-spacing: -0.2px;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.avatarRound {
+  border-radius: 50%;
+}
+
+/* ---------- banners / states ---------- */
+.banner {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #fff7ed;
+  border: 1px solid #fde4c8;
+  color: #b5662a;
+  border-radius: 12px;
+  padding: 11px 16px;
+  font-size: 13.5px;
+  font-weight: 600;
+  margin-top: 18px;
+}
+
+.center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  padding: 80px 20px;
+  color: $muted;
+}
+
+.spinner {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 3px solid #e4e6f2;
+  border-top-color: $primary;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.empty {
+  text-align: center;
+  color: $muted;
+  font-size: 14px;
+  background: $panel;
+  border: 1px dashed #dfe2ee;
+  border-radius: $radius;
+  padding: 56px 24px;
+}
+
+.emptyTitle {
+  font-size: 16px;
+  font-weight: 700;
+  color: $ink2;
+  margin-bottom: 6px;
+}
+
+/* ---------- settings ---------- */
+.settingsIntro {
+  color: $muted;
+  font-size: 14px;
+  margin: 6px 0 0;
+}
+
+.settingsToolbar {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 22px 0 18px;
+}
+
+.settingsList {
+  display: flex;
+  flex-direction: column;
+  background: $panel;
+  border: 1px solid $line;
+  border-radius: $radius;
+  box-shadow: $shadowSm;
+  overflow: hidden;
+}
+
+.settingsItem {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 20px;
+  border-bottom: 1px solid $line;
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  &:hover {
+    background: #fafbfe;
+  }
+}
+
+.settingsMain {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.settingsTitle {
+  font-size: 14.5px;
+  font-weight: 700;
+  color: $ink2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.settingsMeta {
+  color: $muted;
+  font-size: 12.5px;
+  margin-top: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.starBtn {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  color: $muted2;
+  display: flex;
+  align-items: center;
+  padding: 6px;
+  border-radius: 8px;
+
+  &:hover {
+    background: #f1f2f8;
+  }
+}
+
+.starActive {
+  color: #f5b21d;
+}
+
+/* toggle switch */
+.toggle {
+  position: relative;
+  width: 42px;
+  height: 24px;
+  border-radius: 13px;
+  background: #d6d9e6;
+  border: none;
+  cursor: pointer;
+  flex: 0 0 auto;
+  transition: background 0.18s;
+  padding: 0;
+}
+
+.toggleOn {
+  background: $primary;
+}
+
+.toggleKnob {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+  transition: transform 0.18s;
+}
+
+.toggleOn .toggleKnob {
+  transform: translateX(18px);
+}
+
+.segmented {
+  display: flex;
+  background: #eef0f4;
+  border-radius: 10px;
+  padding: 3px;
+}
+
+.segItem {
+  border: none;
+  background: transparent;
+  border-radius: 8px;
+  padding: 7px 16px;
+  font-family: $font;
+  font-size: 13px;
+  font-weight: 700;
+  color: $muted;
+  cursor: pointer;
+}
+
+.segItemActive {
+  background: $panel;
+  color: $primary;
+  box-shadow: $shadowSm;
+}
+
+/* ---------- responsive ---------- */
+@media (max-width: 1100px) {
+  .statRow,
+  .cardsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .favRow {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 760px) {
+  .sidebar {
+    display: none;
+  }
+  .content {
+    padding: 22px 18px 40px;
+  }
+  .statRow,
+  .cardsGrid,
+  .favRow {
+    grid-template-columns: 1fr;
+  }
+  .searchRow {
+    flex-wrap: wrap;
+  }
+}
